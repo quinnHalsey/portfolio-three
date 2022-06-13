@@ -1,10 +1,28 @@
-const BackDrop = () => {
+import { Environment } from "@react-three/drei";
+import * as THREE from "three";
+import { LayerMaterial, Depth, Noise } from "lamina";
+
+const Enviro = () => {
   return (
-    <mesh receiveShadow position={[0, -1, -5]}>
-      <planeBufferGeometry attach="geometry" args={[500, 500]} />
-      <meshStandardMaterial attach="material" color="white" />
-    </mesh>
+    <Environment background resolution={64}>
+      <mesh scale={100}>
+        <sphereGeometry args={[1, 64, 64]} />
+        <LayerMaterial side={THREE.BackSide}>
+          {/* <Base color="blue" alpha={1} mode="normal" /> */}
+          <Depth
+            colorA="#00ffff"
+            colorB="#ff8f00"
+            alpha={0.5}
+            mode="normal"
+            near={0}
+            far={300}
+            origin={[100, 100, 100]}
+          />
+          <Noise mapping="local" type="cell" scale={0.5} mode="softlight" />
+        </LayerMaterial>
+      </mesh>
+    </Environment>
   );
 };
 
-export default BackDrop;
+export default Enviro;

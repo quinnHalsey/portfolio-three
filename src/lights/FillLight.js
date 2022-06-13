@@ -9,7 +9,7 @@ const FillLight = ({ brightness, color }) => {
       lookAt={[0, 0, 0]}
       penumbra={2}
       castShadow
-    ></rectAreaLight>
+    />
   );
 };
 

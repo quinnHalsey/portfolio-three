@@ -5,8 +5,8 @@ const KeyLight = ({ brightness, color }) => {
       height={3}
       color={color}
       intensity={brightness}
-      position={[-2, 0, 5]}
-      lookAt={[0, 0, 0]}
+      position={[-2, 0, -10]}
+      lookAt={[0, 0, -10]}
       penumbra={1}
       castShadow
     />
