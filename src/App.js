@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import Cube from "./elements/Cube";
+import { Canvas } from "@react-three/fiber";
+import GroundPlane from "./elements/GroundPlane";
+import KeyLight from "./lights/KeyLight";
+import RimLight from "./lights/RimLight";
+import FillLight from "./lights/FillLight";
+import BackDrop from "./elements/BackDrop";
+import Name from "./elements/Name";
+import { OrbitControls } from "@react-three/drei";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Canvas id="canvas">
+        <GroundPlane />
+        <BackDrop />
+        <Cube />
+        <Name />
+        <KeyLight brightness={5.6} color={"#ffffff"} />
+        <FillLight brightness={2.6} color={"#ffffff"} />
+        <RimLight brightness={54} color={"#ffffff"} />
+        <OrbitControls
+          enableZoom={true}
+          minDistance={0}
+          maxDistance={500}
+          zoomSpeed={0.5}
+        />
+      </Canvas>
+    </>
   );
 }
 
